@@ -1,0 +1,45 @@
+@SecurityAndAuth_HostAddress = http://localhost:5101
+
+GET {{SecurityAndAuth_HostAddress}}/weatherforecast/
+Accept: application/json
+
+### Create new User
+POST {{SecurityAndAuth_HostAddress}}/register
+Content-Type: application/json
+
+{
+  "email": "test@test.se",
+    "password": "Test123!"
+}
+
+### Login
+POST {{SecurityAndAuth_HostAddress}}/login?useCookies=true
+Content-Type: application/json
+
+{
+  "email": "test@test.se",
+    "password": "Test123!"
+}
+
+### Login Admin
+POST {{SecurityAndAuth_HostAddress}}/login?useCookies=true
+Content-Type: application/json
+
+{
+  "email": "user@example.com",
+  "password": "P@ssw0rd!"
+}
+
+### Register a new user with a role
+POST {{SecurityAndAuth_HostAddress}}/api/auth/register
+Content-Type: application/json
+
+{
+  "email": "user@example.com",
+  "password": "P@ssw0rd!",
+  "role": "Admin"
+}
+
+### Add summary
+Get {{SecurityAndAuth_HostAddress}}/weatherforecast/summaries
+
